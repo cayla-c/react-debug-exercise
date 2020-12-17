@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
-// import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/LoginForm';
 import Footer from '../components/Footer';
 import { Glyphicon } from 'react-bootstrap';
 import '../styles/App.css';
@@ -19,7 +19,7 @@ class App extends Component {
 
   handleLogin() {
     this.refs.navbutton.handleLogoutButton();
-    this.setState({ 
+    this.setState({
       showLoginForm: false,
       showCheckmark: true
     });
@@ -38,7 +38,7 @@ class App extends Component {
       <div className='app'>
         <Navbar ref='navbutton' handleLogout={this.handleLogout} />
         <div className={this.state.showLoginForm === true ? '' : 'hide'}>
-          <LoginForm handleLogin={this.handleLogin} />
+          <LoginForm handleLogin={this.handleLogin.bind(this)} />
         </div>
         <div className={this.state.showCheckmark === true ? 'text-center mt9x' : 'hide'}>
           <Glyphicon glyph='glyphicon glyphicon-ok-sign' />
